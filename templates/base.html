@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>{{title}}</title>
+</head>
+<body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<header>
+
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="display-4 p-4 pb-2 fw-bold lh-1">Отправьте нам сообщение</h1>
+          <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                Выбор языка
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a class="dropdown-item" type="button">Русский</a></li>
+                <li><a class="dropdown-item" type="button">Английский</a></li>
+                <li><a class="dropdown-item" type="button">Испанский</a></li>
+                <li><a class="dropdown-item" type="button">Китайский</a></li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+
+</header>
+<!-- Begin page content -->
+<main role="main" class="container">
+    <main>
+      <div class="container my-5">
+        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+          <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+              <form action="" method="post">
+                  {{ form.hidden_tag() }}
+                  <p>
+                      {{ form.name.label }}<br>
+                      {{ form.name(class="form-control", placeholder="Имя")}}<br>
+                      {% for error in form.name.errors %}
+                          <p class="alert alert-danger" role="alert">
+                              {{ error }}
+                          </p>
+                      {% endfor %}
+                  </p>
+                  <p>
+                      {{ form.feedback.label }}<br>
+                      {{ form.feedback(class="form-control", type="input-box", placeholder="Напишите нам что нибудь", rows="5")}}<br>
+                      {% for error in form.email.errors %}
+                          <p class="alert alert-danger" role="alert">
+                              {{ error }}
+                          </p>
+                      {% endfor %}
+                  </p>
+                  <p>
+                      {{ form.email.label }}<br>
+                      {{ form.email(class="form-control", type="email", placeholder="Оставьте нам свой email для обратной связи") }}<br>
+                      {% for error in form.email.errors %}
+                          <div class="alert alert-danger" role="alert">
+                              {{ error }}
+                          </div>
+                      {% endfor %}
+                  </p>
+                  <p>{{ form.submit(type="submit", class="btn btn-primary", value='send') }}</p>
+                  {{ messange }}
+              </form>
+          </div>
+          <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg border=0">
+            <a class="border=0">
+              <img class="rounded-lg-3" src="../static/img/about/about.jpg" alt="" height="430">
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="container">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a class="nav-link px-2 text-muted">Сделано студентами Высшей Школы Экономики</a></li>
+        </ul>
+        <p class="text-center text-muted">2023</p>
+      </footer>
+    </div>
+</main>
+
+</body>
+</html>
