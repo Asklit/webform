@@ -7,7 +7,7 @@ class FeedbackForm(FlaskForm):
     name = StringField('', validators=[DataRequired()])
     feedback = StringField('', validators=[DataRequired()])
     email = EmailField('', validators=[DataRequired()])
-    submit = SubmitField('Отправить')
+    submit = SubmitField('')
     russian = SubmitField('')
     spanish = SubmitField('')
     english = SubmitField('')

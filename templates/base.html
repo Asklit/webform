@@ -19,16 +19,16 @@
 
     <nav class="navbar">
         <div class="container">
-            <h1 class="display-4 p-4 pb-2 fw-bold lh-1">Отправьте нам сообщение</h1>
+            <h1 class="display-4 p-4 pb-2 fw-bold lh-1">{{ title2 }}</h1>
           <div class="dropdown">
               <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                Выбор языка
+                  {{ choose }}
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><a class="dropdown-item" type="button">Русский</a></li>
-                <li><a class="dropdown-item" type="button">Английский</a></li>
-                <li><a class="dropdown-item" type="button">Испанский</a></li>
-                <li><a class="dropdown-item" type="button">Китайский</a></li>
+                <li><a class="dropdown-item" href='/russian' type="button">{{ russian_language }}</a></li>
+                <li><a class="dropdown-item" href='/english' type="button">{{ english_language }}</a></li>
+                <li><a class="dropdown-item" href='/spanish' type="button">{{ spanish_language }}</a></li>
+                <li><a class="dropdown-item" href='/chinese' type="button">{{ chinese_language }}</a></li>
               </ul>
           </div>
       </div>
@@ -45,7 +45,7 @@
                   {{ form.hidden_tag() }}
                   <p>
                       {{ form.name.label }}<br>
-                      {{ form.name(class="form-control", placeholder="Имя")}}<br>
+                      {{ form.name(class="form-control", placeholder=name)}}<br>
                       {% for error in form.name.errors %}
                           <p class="alert alert-danger" role="alert">
                               {{ error }}
@@ -54,7 +54,7 @@
                   </p>
                   <p>
                       {{ form.feedback.label }}<br>
-                      {{ form.feedback(class="form-control", type="input-box", placeholder="Напишите нам что нибудь", rows="5")}}<br>
+                      {{ form.feedback(class="form-control", type="textarea", placeholder=text, rows="5")}}<br>
                       {% for error in form.email.errors %}
                           <p class="alert alert-danger" role="alert">
                               {{ error }}
@@ -63,15 +63,15 @@
                   </p>
                   <p>
                       {{ form.email.label }}<br>
-                      {{ form.email(class="form-control", type="email", placeholder="Оставьте нам свой email для обратной связи") }}<br>
+                      {{ form.email(class="form-control", type="email", placeholder=email_form) }}<br>
                       {% for error in form.email.errors %}
                           <div class="alert alert-danger" role="alert">
                               {{ error }}
                           </div>
                       {% endfor %}
                   </p>
-                  <p>{{ form.submit(type="submit", class="btn btn-primary", value='send') }}</p>
-                  {{ messange }}
+                  <p>{{ form.submit(type="submit", class="btn btn-primary", value=send) }}</p>
+                  {{ message }}
               </form>
           </div>
           <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg border=0">
@@ -86,7 +86,7 @@
     <div class="container">
       <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a class="nav-link px-2 text-muted">Сделано студентами Высшей Школы Экономики</a></li>
+          <li class="nav-item"><a class="nav-link px-2 text-muted">{{ made_by }}</a></li>
         </ul>
         <p class="text-center text-muted">2023</p>
       </footer>
